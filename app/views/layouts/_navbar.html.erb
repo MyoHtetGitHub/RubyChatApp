@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-info justify-content-between">
+    <a class="navbar-brand text-white font-weight-bold" href="#"><%= t('layouts._navbar.Team3ChatApplication') %></a>
+    <div class="navbar-light text-white">
+     <% if current_user %>
+     <%= current_user.name %> |
+     <%= link_to t('layouts._navbar.Logout'), logout_path, style:"color:white;" %> |
+     <% else %> 
+     <%= link_to t('layouts._navbar.Sign In'), login_path, style:"color:white;" %> |
+     <%= link_to t('layouts._navbar.Sign Up'), signup_path, style:"color:white;" %> |
+     <% end %>  
+
+     <% if I18n.locale == I18n.default_locale %>
+     <%= link_to t('layouts._navbar.Japan'),{:locale => 'ja'}, style:"color:white;" %> 
+     <% else %>
+     <%= link_to t('layouts._navbar.English'),{:locale => 'en'}, style:"color:white;" %> 
+     <% end %>
+   </div>
+ </nav>
+</body>
+</html>
